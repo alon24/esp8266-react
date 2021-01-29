@@ -41,6 +41,8 @@ void LightStateService::begin() {
 
 void LightStateService::onConfigUpdated() {
   digitalWrite(LED_PIN, _state.ledOn ? LED_ON : LED_OFF);
+  Serial.println("changing led mode");
+  Serial.println(_state.ledOn);
 }
 
 void LightStateService::registerConfig() {
