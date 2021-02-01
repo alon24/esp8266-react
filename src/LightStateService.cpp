@@ -68,8 +68,7 @@ void LightStateService::registerConfig() {
   doc["brightness"] = false;
 
   String payload;
-  serializeJson(doc, payload);
+  // serializeJson(doc, payload);
   _mqttClient->publish(configTopic.c_str(), 0, false, payload.c_str());
-
   _mqttPubSub.configureTopics(pubTopic, subTopic);
 }

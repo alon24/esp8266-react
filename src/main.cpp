@@ -16,12 +16,8 @@ LightStateService lightStateService = LightStateService(&server,
                                                         esp8266React.getMqttClient(),
                                                         &lightMqttSettingsService);
 
-CarMqttSettingsService carMqttSettingsService =
-    CarMqttSettingsService(&server, esp8266React.getFS(), esp8266React.getSecurityManager());
 CarStateService carStateService = CarStateService(&server,
-                                  esp8266React.getSecurityManager(),
-                                  esp8266React.getMqttClient(),
-                                  &carMqttSettingsService);                              
+                                  esp8266React.getSecurityManager());                              
 void setup() {
   // start serial and filesystem
   Serial.begin(SERIAL_BAUD_RATE);
@@ -37,9 +33,6 @@ void setup() {
 
   // load the initial light settings
   carStateService.begin();
-  // start the light service
-  carMqttSettingsService.begin();
-
 
   // start the server
   server.begin();

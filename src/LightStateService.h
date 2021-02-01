@@ -32,6 +32,9 @@ class LightState {
   bool ledOn;
 
   static void read(LightState& settings, JsonObject& root) {
+
+    // serializeJson(root, Serial);
+
     root["led_on"] = settings.ledOn;
   }
 
