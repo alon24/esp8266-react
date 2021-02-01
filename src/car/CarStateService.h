@@ -54,9 +54,10 @@ class CarState {
   bool carOn;
   bool lightsOn;
   bool ultraSoundOn;
-  uint8_t x;
-  uint8_t y;
-  uint8_t power;
+  int x;
+  int y;
+  String action;
+  int power;
   uint8_t pwmModulation;
   bool useSteeringMotor;
   bool btnMomemntary;
@@ -71,12 +72,13 @@ class CarState {
     root["y"] = settings.y;
     root["power"] = settings.power;
     root["btnIntCount"] = settings.btnIntCount;
-    // serializeJson(root, Serial);  // this prints after
-    // root["theData"] = settings.theData;
+    root["action"] = settings.action;
+    serializeJson(root, Serial); 
+    Serial.println();
   }
 
   static StateUpdateResult update(JsonObject& root, CarState& carState) {
-    Serial.println("StateUpdateResult update:");
+    // Serial.println("StateUpdateResult update:"); from ui!
     // serializeJson(root, Serial);
     carState.carOn = root["carOn"] | 0x1;
     carState.lightsOn = root["lightsOn"] | 0x0;

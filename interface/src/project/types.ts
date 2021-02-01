@@ -10,18 +10,20 @@ export interface LightMqttSettings {
 }
 
 export interface CarState {
-  btnMomemntary: boolean;
+  btnMomemntary?: boolean;
+  x?: number;
+  y?: number;
+  power?: number;
+  action?: String;
 }
 
 export interface CarState1 {
   carOn: boolean;
   lightsOn?: boolean;
   ultraSoundOn: boolean;
-  leftMotorPWM?: number;
-  rightMotorPWM?: number;
-  leftMotorDir?: number;
-  rightMotorDir?: number;
-  pwmModulation?: number;
+  x?: number;
+  y?: number;
+  power?: number;
   useSteeringMotor?: boolean;
   btnMomemntary?: boolean;
   btnIntCount?: number;

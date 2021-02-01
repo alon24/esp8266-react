@@ -49,13 +49,14 @@ function CarStateWebSocketControllerForm(props: CarStateWebSocketControllerFormP
     }
 
     const handleMove = (data) => {
-        console.log('handleMove=', data);
+        // console.log('handleMove=', data);
         // // setData({ led_on: event.target.checked }, saveData);
-        setData({ btnMomemntary: true }, saveData);
+        setData({ btnMomemntary: true, x: data.x, y: data.y, action: data.type }, saveData);
     }
 
     const handleStop = (data) => {
         console.log('handleStop=', data)
+        setData({ action: data.type }, saveData);
     }
 
     return (
