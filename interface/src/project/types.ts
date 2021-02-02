@@ -13,8 +13,8 @@ export interface CarState {
   btnMomemntary?: boolean;
   x?: number;
   y?: number;
+  action?: any;
   power?: number;
-  action?: String;
 }
 
 export interface CarState1 {

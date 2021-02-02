@@ -56,8 +56,8 @@ class CarState {
   bool ultraSoundOn;
   int x;
   int y;
-  String action;
   int power;
+  const char* action;
   uint8_t pwmModulation;
   bool useSteeringMotor;
   bool btnMomemntary;
@@ -73,8 +73,8 @@ class CarState {
     root["power"] = settings.power;
     root["btnIntCount"] = settings.btnIntCount;
     root["action"] = settings.action;
-    serializeJson(root, Serial); 
-    Serial.println();
+    // serializeJson(root, Serial);
+    // Serial.println();
   }
 
   static StateUpdateResult update(JsonObject& root, CarState& carState) {
@@ -87,6 +87,9 @@ class CarState {
     carState.y = root["y"];
     carState.power = root["power"];
     carState.btnIntCount = root["btnIntCount"];
+    carState.action = root["action"];
+    // carState.action = root["action"];
+    // Serial.println(root[carState.action]);
     return StateUpdateResult::CHANGED;
   }
 };
